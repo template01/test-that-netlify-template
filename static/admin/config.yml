@@ -6,7 +6,8 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
   - label: "Blog in English"
     name: "english_posts"
-    folder: "_posts"
+    create: true,
+    folder: "content/posts"
     filter: {field: "language", value: "en"}
     fields:
       - {label: "Language", name: "language", widget: "select", options: ["en", "es"]}
@@ -14,7 +15,8 @@ collections:
       - {label: "Content", name: "body", widget: "markdown"}
   - label: "Blog en Español"
     name: "spanish_posts"
-    folder: "_posts"
+    create: true,
+    folder: "content/posts"
     filter: {field: "language", value: "es"}
     fields:
       - {label: "Lenguaje", name: "language", widget: "select", options: ["en", "es"]}
