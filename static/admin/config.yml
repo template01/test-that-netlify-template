@@ -4,32 +4,51 @@ backend:
 media_folder: "static/images/uploads" # Media files will be stored in the repo under static/images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 collections:
-  - name: "books" # Used in routes, e.g., /admin/collections/blog
-    label: "Books" # Used in the UI
-    folder: "content/books" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
-
-  - label: "Page in Nederlands"
-    name: "dutchposts_posts"
-    folder: "content/pages"
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    filter: {field: "language", value: "nl"}
-    fields:
-      - {label: "Taal", name: "language", widget: "select", options: ["en", "nl"]}
-      - {label: "Titel", name: "title", widget: "string"}
-      - {label: "Inhoud", name: "body", widget: "markdown"}
-  - label: "Page in English"
+  - label: "Blog in English"
     name: "english_posts"
-    folder: "content/pages"
-    create: true # Allow users to create new documents in this collection
-    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    folder: "_posts"
     filter: {field: "language", value: "en"}
     fields:
-      - {label: "Language", name: "language", widget: "select", options: ["en", "nl"]}
+      - {label: "Language", name: "language", widget: "select", options: ["en", "es"]}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Content", name: "body", widget: "markdown"}
+  - label: "Blog en Español"
+    name: "spanish_posts"
+    folder: "_posts"
+    filter: {field: "language", value: "es"}
+    fields:
+      - {label: "Lenguaje", name: "language", widget: "select", options: ["en", "es"]}
+      - {label: "Titulo", name: "title", widget: "string"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
+
+
+
+  # - name: "books" # Used in routes, e.g., /admin/collections/blog
+  #   label: "Books" # Used in the UI
+  #   folder: "content/books" # The path to the folder where the documents are stored
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   fields: # The fields for each document, usually in front matter
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Body", name: "body", widget: "markdown"}
+  #
+  # - label: "Page in Nederlands"
+  #   name: "dutchposts_posts"
+  #   folder: "content/pages/nl"
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   filter: {field: "language", value: "nl"}
+  #   fields:
+  #     - {label: "Taal", name: "language", widget: "select", options: ["en", "nl"]}
+  #     - {label: "Titel", name: "title", widget: "string"}
+  #     - {label: "Inhoud", name: "body", widget: "markdown"}
+  # - label: "Page in English"
+  #   name: "english_posts"
+  #   folder: "content/pages/en"
+  #   create: true # Allow users to create new documents in this collection
+  #   slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+  #   filter: {field: "language", value: "en"}
+  #   fields:
+  #     - {label: "Language", name: "language", widget: "select", options: ["en", "nl"]}
+  #     - {label: "Title", name: "title", widget: "string"}
+  #     - {label: "Content", name: "body", widget: "markdown"}
